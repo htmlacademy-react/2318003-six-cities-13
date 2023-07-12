@@ -1,4 +1,9 @@
+import {useParams} from 'react-router-dom';
+
 function OfferPage():JSX.Element {
+  const id = useParams();
+  // eslint-disable-next-line no-console
+  console.log(id);
 
   return (
     <div className="page">

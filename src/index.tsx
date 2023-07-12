@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import {CardProperty} from './constant/card-constant.ts';
+import {CardProperty} from './constant/constant.ts';
 
 import {App} from './components/app.tsx';
 
