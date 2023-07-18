@@ -18,28 +18,28 @@ function App({cardsCount} : AppProps): JSX.Element {
     <BrowserRouter>
       <Routes>
         <Route
-          path={PageLinks.main}
-          element={<MainPage cardsCount = {cardsCount}/>}
+          path = {PageLinks.Main}
+          element = {<MainPage cardsCount = {cardsCount}/>}
         />
         <Route
-          path={PageLinks.login}
-          element={<LoginPage />}
+          path = {PageLinks.Login}
+          element = {<LoginPage />}
         />
         <Route
-          path={PageLinks.favorites}
-          element={
-            <PrivateRoute authorizationStatus={AuthorizationStatus.NotAuth}>
+          path = {PageLinks.Favorites}
+          element = {
+            <PrivateRoute authorizationStatus = {AuthorizationStatus.NotAuth}>
               <FavoritesPage />
             </PrivateRoute>
           }
         />
         <Route
-          path={PageLinks.offer}
-          element={<OfferPage />}
+          path = {PageLinks.Offer}
+          element = {<OfferPage />}
         />
         <Route
-          path='*'
-          element={<ErrorPage />}
+          path = '*'
+          element = {<ErrorPage />}
         />
       </Routes>
     </BrowserRouter>

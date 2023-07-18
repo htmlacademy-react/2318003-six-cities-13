@@ -1,13 +1,13 @@
-const CardProperty = {
-  cardsCount: 4,
-};
+enum CardProperty {
+  CardsCount = 4,
+}
 
-const PageLinks = {
-  main: '/',
-  login: '/login',
-  favorites: '/favorites',
-  offer: '/offer/:id'
-};
+enum PageLinks {
+  Main = '/',
+  Login = '/login',
+  Favorites = '/favorites',
+  Offer = '/offer/:id'
+}
 
 enum AuthorizationStatus {
   Auth = 'AUTH',

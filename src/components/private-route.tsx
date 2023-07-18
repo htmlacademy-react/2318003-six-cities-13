@@ -1,4 +1,5 @@
 import {Navigate} from 'react-router-dom';
+import {PropsWithChildren} from 'react';
 
 import {PageLinks, AuthorizationStatus} from '../constant/constant.ts';
 
@@ -7,11 +8,12 @@ type PrivateRouteProps = {
   children: JSX.Element;
 }
 
-function PrivateRoute({authorizationStatus, children}: PrivateRouteProps): JSX.Element {
+function PrivateRoute(props: PropsWithChildren<PrivateRouteProps>): JSX.Element {
+
   return (
-    authorizationStatus === AuthorizationStatus.Auth
-      ? children
-      : <Navigate to={PageLinks.login} />
+    props.authorizationStatus === AuthorizationStatus.Auth
+      ? props.children
+      : <Navigate to={PageLinks.Login} />
   );
 }
 
