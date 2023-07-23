@@ -1,9 +1,9 @@
 import {Link} from 'react-router-dom';
 
-import { useState } from 'react';
+import {useState} from 'react';
 
 
-function ErrorPage (): JSX.Element {
+function ErrorPage () {
   const [isHover, setIsHover] = useState(false);
 
   const handleMouseEnter = () => {
