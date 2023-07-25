@@ -2,7 +2,7 @@ import {Offer} from '../types/offers.ts';
 
 import {useState} from 'react';
 
-import {PageLinks, RATING_COEFFICIENT} from '../constant/constant.ts';
+import {RATING_COEFFICIENT} from '../constant/constant.ts';
 
 import {Link} from 'react-router-dom';
 
@@ -58,7 +58,7 @@ function Card({id, title, type, price, previewImage, isPremium, isFavorite, rati
           </div>
         </div>
         <h2 className="place-card__name">
-          <Link to = {PageLinks.Offer}>{title}</Link>
+          <Link to = {`offer/${id}`}>{title}</Link>
         </h2>
         <p className="place-card__type">{type.charAt(0).toUpperCase() + type.slice(1)}</p>
       </div>

@@ -43,7 +43,7 @@ function App({cardsCount, offers} : AppProps) {
           element = {<OfferPage offers = {offers}/>}
         />
         <Route
-          path = '*'
+          path = {PageLinks.NotFound}
           element = {<ErrorPage />}
         />
       </Routes>

@@ -26,6 +26,7 @@ function FavoriteCardList({favoriteOffersByCities, city}: FavoriteCardListProps)
         {favoriteOffersByCities.map((offer) => (
           <FavoriteCard
             key = {offer.id}
+            id = {offer.id}
             title = {offer.title}
             type = {offer.type}
             price = {offer.price}

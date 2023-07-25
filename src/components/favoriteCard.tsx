@@ -2,9 +2,10 @@ import {Offer} from '../types/offers.ts';
 
 import {Link} from 'react-router-dom';
 
-import {PageLinks, RATING_COEFFICIENT} from '../constant/constant.ts';
+import {RATING_COEFFICIENT} from '../constant/constant.ts';
 
 type FavoriteCardProps = {
+  id: Offer['id'];
   title: Offer['title'];
   type: Offer['type'];
   price: Offer['price'];
@@ -14,7 +15,7 @@ type FavoriteCardProps = {
   rating: Offer['rating'];
 }
 
-function FavoriteCard({title, type, price, previewImage, isFavorite, isPremium, rating} : FavoriteCardProps) {
+function FavoriteCard({id, title, type, price, previewImage, isFavorite, isPremium, rating} : FavoriteCardProps) {
 
   return(
     <article className="favorites__card place-card">
@@ -46,7 +47,7 @@ function FavoriteCard({title, type, price, previewImage, isFavorite, isPremium, 
           </div>
         </div>
         <h2 className="place-card__name">
-          <Link to = {PageLinks.Offer}>{title}</Link>
+          <Link to = {`/offer/${id}`}>{title}</Link>
         </h2>
         <p className="place-card__type">{type.charAt(0).toUpperCase() + type.slice(1)}</p>
       </div>

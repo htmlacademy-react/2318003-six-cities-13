@@ -30,11 +30,16 @@ const offers: Offer[] = [
     ],
     host: {
       name: 'Oliver Conner',
-      avatarUrl: 'https://url-to-image/image.png',
+      avatarUrl: 'https://cdn-icons-png.flaticon.com/512/1090/1090806.png',
       isPro: false,
     },
     images: [
-      'https://www.travelandleisure.com/thmb/_3nQ1ivxrnTKVphdp9ZYvukADKQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/amsterdam-nl-AMSTERDAMTG0521-6d2bfaac29704667a950bcf219680640.jpg'
+      'https://www.travelandleisure.com/thmb/_3nQ1ivxrnTKVphdp9ZYvukADKQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/amsterdam-nl-AMSTERDAMTG0521-6d2bfaac29704667a950bcf219680640.jpg',
+      'https://34travel.me/media/posts/58a2cc7492d13-hotels.jpg',
+      'https://ezdili-znaem.com/wp-content/uploads/2016/12/11-750x410.jpg?x11234',
+      'https://cdn.forbes.ru/files/c/1082x725/forbes_import/h-/h-2_2.webp',
+      'https://media.admagazine.ru/photos/61409a3dcbfdf0ad18bbd10f/16:9/w_2560%2Cc_limit/1.jpg',
+      'https://images.squarespace-cdn.com/content/v1/563a5fb2e4b0710808c31f27/1573859665520-P6WZ2CUY8T6A9CNKWZDQ/Moxy+%D0%BE%D1%82%D0%B5%D0%BB%D1%8C+%D1%87%D0%B5%D0%BB%D1%81%D0%B8.jpg'
     ],
     maxAdults: 4
   },
@@ -67,11 +72,16 @@ const offers: Offer[] = [
     ],
     host: {
       name: 'Alex Turkov',
-      avatarUrl: 'https://url-to-image/image.png',
+      avatarUrl: 'https://cdn.icon-icons.com/icons2/564/PNG/512/Iron_Man_icon-icons.com_54170.png',
       isPro: false,
     },
     images: [
-      'https://avatars.mds.yandex.net/get-altay/5486790/2a0000017cbda4bfdaed0c302de5e8a34d9d/XXXL'
+      'https://avatars.mds.yandex.net/get-altay/5486790/2a0000017cbda4bfdaed0c302de5e8a34d9d/XXXL',
+      'https://34travel.me/media/posts/58a2cc7492d13-hotels.jpg',
+      'https://ezdili-znaem.com/wp-content/uploads/2016/12/11-750x410.jpg?x11234',
+      'https://cdn.forbes.ru/files/c/1082x725/forbes_import/h-/h-2_2.webp',
+      'https://media.admagazine.ru/photos/61409a3dcbfdf0ad18bbd10f/16:9/w_2560%2Cc_limit/1.jpg',
+      'https://images.squarespace-cdn.com/content/v1/563a5fb2e4b0710808c31f27/1573859665520-P6WZ2CUY8T6A9CNKWZDQ/Moxy+%D0%BE%D1%82%D0%B5%D0%BB%D1%8C+%D1%87%D0%B5%D0%BB%D1%81%D0%B8.jpg'
     ],
     maxAdults: 2
   },
@@ -104,11 +114,16 @@ const offers: Offer[] = [
     ],
     host: {
       name: 'Sergey Nemirov',
-      avatarUrl: 'https://url-to-image/image.png',
+      avatarUrl: 'https://i.etsystatic.com/26677324/r/il/44eaa9/2750156244/il_340x270.2750156244_dsfx.jpg',
       isPro: false,
     },
     images: [
-      'https://avatars.mds.yandex.net/get-altay/223006/2a0000015b0b67bae566f7ddcfcfb0bc599e/XXXL'
+      'https://avatars.mds.yandex.net/get-altay/223006/2a0000015b0b67bae566f7ddcfcfb0bc599e/XXXL',
+      'https://34travel.me/media/posts/58a2cc7492d13-hotels.jpg',
+      'https://ezdili-znaem.com/wp-content/uploads/2016/12/11-750x410.jpg?x11234',
+      'https://cdn.forbes.ru/files/c/1082x725/forbes_import/h-/h-2_2.webp',
+      'https://media.admagazine.ru/photos/61409a3dcbfdf0ad18bbd10f/16:9/w_2560%2Cc_limit/1.jpg',
+      'https://images.squarespace-cdn.com/content/v1/563a5fb2e4b0710808c31f27/1573859665520-P6WZ2CUY8T6A9CNKWZDQ/Moxy+%D0%BE%D1%82%D0%B5%D0%BB%D1%8C+%D1%87%D0%B5%D0%BB%D1%81%D0%B8.jpg'
     ],
     maxAdults: 3
   },
@@ -141,11 +156,16 @@ const offers: Offer[] = [
     ],
     host: {
       name: 'Ivan Ivanov',
-      avatarUrl: 'https://url-to-image/image.png',
+      avatarUrl: 'https://i.etsystatic.com/16832654/r/il/999688/3197669291/il_fullxfull.3197669291_ixdm.jpg',
       isPro: false,
     },
     images: [
-      'https://avatars.mds.yandex.net/get-altay/5527230/2a0000018399492a5d7927e5d6f44f9a7e35/XXXL'
+      'https://avatars.mds.yandex.net/get-altay/5527230/2a0000018399492a5d7927e5d6f44f9a7e35/XXXL',
+      'https://34travel.me/media/posts/58a2cc7492d13-hotels.jpg',
+      'https://ezdili-znaem.com/wp-content/uploads/2016/12/11-750x410.jpg?x11234',
+      'https://cdn.forbes.ru/files/c/1082x725/forbes_import/h-/h-2_2.webp',
+      'https://media.admagazine.ru/photos/61409a3dcbfdf0ad18bbd10f/16:9/w_2560%2Cc_limit/1.jpg',
+      'https://images.squarespace-cdn.com/content/v1/563a5fb2e4b0710808c31f27/1573859665520-P6WZ2CUY8T6A9CNKWZDQ/Moxy+%D0%BE%D1%82%D0%B5%D0%BB%D1%8C+%D1%87%D0%B5%D0%BB%D1%81%D0%B8.jpg'
     ],
     maxAdults: 4
   },
