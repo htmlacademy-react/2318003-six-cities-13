@@ -9,17 +9,22 @@ import {PrivateRoute} from './private-route.tsx';
 
 import {PageLinks, AuthorizationStatus} from '../constant/constant.ts';
 
+import {Offer} from '../types/offers.ts';
+
 type AppProps = {
   cardsCount: number;
+  offers: Offer[];
 }
 
-function App({cardsCount} : AppProps): JSX.Element {
+function App({cardsCount, offers} : AppProps) {
+  const favoritesOffers = offers.filter((offer) => offer.isFavorite);
+
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path = {PageLinks.Main}
-          element = {<MainPage cardsCount = {cardsCount}/>}
+          element = {<MainPage cardsCount = {cardsCount} offers = {offers}/>}
         />
         <Route
           path = {PageLinks.Login}
@@ -28,17 +33,17 @@ function App({cardsCount} : AppProps): JSX.Element {
         <Route
           path = {PageLinks.Favorites}
           element = {
-            <PrivateRoute authorizationStatus = {AuthorizationStatus.NotAuth}>
-              <FavoritesPage />
+            <PrivateRoute authorizationStatus = {AuthorizationStatus.Auth}>
+              <FavoritesPage favoriteOffers = {favoritesOffers}/>
             </PrivateRoute>
           }
         />
         <Route
           path = {PageLinks.Offer}
-          element = {<OfferPage />}
+          element = {<OfferPage offers = {offers}/>}
         />
         <Route
-          path = '*'
+          path = {PageLinks.NotFound}
           element = {<ErrorPage />}
         />
       </Routes>
