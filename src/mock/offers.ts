@@ -26,7 +26,7 @@ const offers: Offer[] = [
     description: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.',
     bedrooms: 3,
     goods: [
-      'Heating'
+      'Heating', 'Washing machine', 'Towels', 'Coffee machine', 'Baby seat', 'Heating', 'Cabel TV', 'Fridge', 'Kitchen'
     ],
     host: {
       name: 'Oliver Conner',
@@ -68,7 +68,7 @@ const offers: Offer[] = [
     description: 'The best in Paris',
     bedrooms: 1,
     goods: [
-      'Bathroom', 'AC'
+      'Bathroom', 'AC', 'Washing machine', 'Towels', 'Coffee machine', 'Heating', 'Cabel TV', 'Kitchen'
     ],
     host: {
       name: 'Alex Turkov',
@@ -110,7 +110,7 @@ const offers: Offer[] = [
     description: 'The best in Cologne',
     bedrooms: 1,
     goods: [
-      'Bathroom', 'AC', 'Free Wi-Fi'
+      'Bathroom', 'AC', 'Free Wi-Fi', 'Washing machine', 'Towels', 'Coffee machine', 'Baby seat', 'Heating', 'Cabel TV', 'Fridge', 'Kitchen'
     ],
     host: {
       name: 'Sergey Nemirov',
@@ -152,7 +152,7 @@ const offers: Offer[] = [
     description: 'The best in Brussels',
     bedrooms: 3,
     goods: [
-      'Bathroom', 'AC', 'Wi-Fi'
+      'Bathroom', 'AC', 'Wi-Fi', 'Heating', 'Cabel TV', 'Fridge', 'Kitchen'
     ],
     host: {
       name: 'Ivan Ivanov',
