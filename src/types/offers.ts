@@ -17,7 +17,7 @@ export type Offer = {
   maxAdults: number;
 }
 
-type City = {
+export type City = {
   name: string;
   location: Location;
 }

@@ -1,10 +1,10 @@
 import {Offer} from '../types/offers.ts';
 
-import {useState} from 'react';
-
 import {RATING_COEFFICIENT} from '../constant/constant.ts';
 
 import {Link} from 'react-router-dom';
+
+import { MouseEvent } from 'react';
 
 type CardProps = {
   id: Offer['id'];
@@ -15,21 +15,14 @@ type CardProps = {
   isPremium: Offer['isPremium'];
   isFavorite: Offer['isFavorite'];
   rating: Offer['rating'];
+  onCardEnter: (event: MouseEvent<HTMLLIElement>) => void;
+  onCardLeave: (event: MouseEvent<HTMLLIElement>) => void;
 }
 
-function Card({id, title, type, price, previewImage, isPremium, isFavorite, rating} : CardProps) {
-  const [, setState] = useState('');
-
-  const handleMouseEnter = () => {
-    setState(id);
-  };
-
-  const handleMouseLeave = () => {
-    setState('');
-  };
+function Card({id, title, type, price, previewImage, isPremium, isFavorite, rating, onCardEnter, onCardLeave} : CardProps) {
 
   return (
-    <article className="cities__card place-card" onMouseOver = {handleMouseEnter} onMouseLeave = {handleMouseLeave}>
+    <article className="cities__card place-card" id = {id} onMouseEnter = {onCardEnter} onMouseLeave = {onCardLeave}>
       <div className={`place-card__mark ${isPremium ? '' : 'visually-hidden'}`}>
         <span>Premium</span>
       </div>

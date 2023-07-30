@@ -12,11 +12,10 @@ import {PageLinks, AuthorizationStatus} from '../constant/constant.ts';
 import {Offer} from '../types/offers.ts';
 
 type AppProps = {
-  cardsCount: number;
   offers: Offer[];
 }
 
-function App({cardsCount, offers} : AppProps) {
+function App({offers} : AppProps) {
   const favoritesOffers = offers.filter((offer) => offer.isFavorite);
 
   return (
@@ -24,7 +23,7 @@ function App({cardsCount, offers} : AppProps) {
       <Routes>
         <Route
           path = {PageLinks.Main}
-          element = {<MainPage cardsCount = {cardsCount} offers = {offers}/>}
+          element = {<MainPage offers = {offers}/>}
         />
         <Route
           path = {PageLinks.Login}
