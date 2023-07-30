@@ -1,15 +1,31 @@
+import {useState} from 'react';
+
 import {CardList} from '../components/cardList';
 
 import {Offer} from '../types/offers';
 
 import {Header} from '../components/header.tsx';
 
+import {Map} from '../components/map.tsx';
+
+import {CITY} from '../constant/constant.ts';
+
 type MainPageProps = {
-  cardsCount: number;
   offers: Offer[];
 }
 
-function MainPage({cardsCount, offers} : MainPageProps) {
+function MainPage({offers} : MainPageProps) {
+  const [selectedOffer, setSelectedOffer] = useState<Offer | undefined>(undefined);
+
+  const handleCardListItemHover = (id: Offer['id'] | undefined) => {
+    if (!id) {
+      setSelectedOffer(undefined);
+    }
+    const currentOffer = offers.find((offer) =>
+      offer.id === id,
+    );
+    setSelectedOffer(currentOffer);
+  };
 
   return (
     <div className="page page--gray page--main">
@@ -74,11 +90,11 @@ function MainPage({cardsCount, offers} : MainPageProps) {
                 </ul>
               </form>
 
-              {<CardList cardsCount = {cardsCount} offers = {offers}/>}
+              {<CardList offers = {offers} onCardListItemHover = {handleCardListItemHover}/>}
 
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              {<Map city = {CITY} offers = {offers} selectedCard = {selectedOffer}/>}
             </div>
           </div>
         </div>
