@@ -4,7 +4,7 @@ import {RATING_COEFFICIENT} from '../constant/constant.ts';
 
 import {Link} from 'react-router-dom';
 
-import { MouseEvent } from 'react';
+import {MouseEvent} from 'react';
 
 type CardProps = {
   id: Offer['id'];
@@ -17,16 +17,17 @@ type CardProps = {
   rating: Offer['rating'];
   onCardEnter: (event: MouseEvent<HTMLLIElement>) => void;
   onCardLeave: (event: MouseEvent<HTMLLIElement>) => void;
+  isNearlyPlaceCard: boolean;
 }
 
-function Card({id, title, type, price, previewImage, isPremium, isFavorite, rating, onCardEnter, onCardLeave} : CardProps) {
+function Card({id, title, type, price, previewImage, isPremium, isFavorite, rating, onCardEnter, onCardLeave, isNearlyPlaceCard} : CardProps) {
 
   return (
-    <article className="cities__card place-card" id = {id} onMouseEnter = {onCardEnter} onMouseLeave = {onCardLeave}>
+    <article className = {isNearlyPlaceCard ? 'near-places__card place-card' : 'cities__card place-card'} id = {id} onMouseEnter = {onCardEnter} onMouseLeave = {onCardLeave}>
       <div className={`place-card__mark ${isPremium ? '' : 'visually-hidden'}`}>
         <span>Premium</span>
       </div>
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className = {isNearlyPlaceCard ? 'near-places__image-wrapper place-card__image-wrapper' : 'cities__image-wrapper place-card__image-wrapper'}>
         <a href="#">
           <img className="place-card__image" src={previewImage} width="260" height="200" alt="Place image"/>
         </a>
@@ -51,7 +52,7 @@ function Card({id, title, type, price, previewImage, isPremium, isFavorite, rati
           </div>
         </div>
         <h2 className="place-card__name">
-          <Link to = {`offer/${id}`}>{title}</Link>
+          <Link to = {`/offer/${id}`}>{title}</Link>
         </h2>
         <p className="place-card__type">{type.charAt(0).toUpperCase() + type.slice(1)}</p>
       </div>

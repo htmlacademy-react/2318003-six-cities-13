@@ -7,9 +7,10 @@ import {MouseEvent} from 'react';
 type CardListProps = {
   offers: Offer[];
   onCardListItemHover: (id: string | undefined) => void;
+  isNearlyPlaceCard: boolean;
 }
 
-function CardList ({offers, onCardListItemHover} : CardListProps) {
+function CardList ({offers, onCardListItemHover, isNearlyPlaceCard} : CardListProps) {
   const handleCardListEnter = (evt: MouseEvent<HTMLLIElement>) => {
     evt.preventDefault();
     onCardListItemHover(evt.currentTarget.id);
@@ -20,7 +21,7 @@ function CardList ({offers, onCardListItemHover} : CardListProps) {
   };
 
   return (
-    <div className="cities__places-list places__list tabs__content">
+    <div className = {isNearlyPlaceCard ? 'near-places__list places__list' : 'cities__places-list places__list tabs__content'}>
 
       {offers.map((offer) => (
         <Card
@@ -35,6 +36,7 @@ function CardList ({offers, onCardListItemHover} : CardListProps) {
           key = {offer.id}
           onCardEnter = {handleCardListEnter}
           onCardLeave = {handleCardListLeave}
+          isNearlyPlaceCard = {isNearlyPlaceCard}
         />
       ))}
 

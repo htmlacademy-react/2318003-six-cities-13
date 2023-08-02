@@ -13,6 +13,7 @@ type MapProps = {
   city: City;
   offers: Offer[];
   selectedCard: Offer | undefined;
+  isNearlyOffersMap: boolean;
 }
 
 const defaultCustomIcon = new Icon({
@@ -27,10 +28,15 @@ const currentCustomIcon = new Icon({
   iconAnchor: [20, 40],
 });
 
-function Map({city, offers, selectedCard}: MapProps) {
+function Map({city, offers, selectedCard, isNearlyOffersMap}: MapProps) {
 
   const mapRef = useRef(null);
   const map = useMap(mapRef, city);
+
+  const getMapType = (): string =>
+    isNearlyOffersMap
+      ? 'offer__map map'
+      : 'cities__map map';
 
   useEffect(() => {
     if (map) {
@@ -41,24 +47,30 @@ function Map({city, offers, selectedCard}: MapProps) {
           lng: offer.location.longitude,
         });
 
-        marker
-          .setIcon(
-            selectedCard !== undefined && offer.id === selectedCard.id
-              ? currentCustomIcon
-              : defaultCustomIcon
-          ).addTo(markerLayer);
+        if (!isNearlyOffersMap) {
+          marker
+            .setIcon(
+              selectedCard !== undefined && offer.id === selectedCard.id
+                ? currentCustomIcon
+                : defaultCustomIcon
+            ).addTo(markerLayer);
+        } else {
+          marker
+            .setIcon(defaultCustomIcon).addTo(markerLayer);
+        }
       });
 
       return () => {
         map.removeLayer(markerLayer);
       };
     }
-  }, [map, offers, selectedCard]);
+  }, [map, offers, selectedCard, isNearlyOffersMap]);
+
 
   return (
     <section
-      className="cities__map map"
-      ref={mapRef}
+      className = {getMapType()}
+      ref = {mapRef}
     >
     </section>
   );

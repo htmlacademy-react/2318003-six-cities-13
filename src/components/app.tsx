@@ -10,12 +10,14 @@ import {PrivateRoute} from './private-route.tsx';
 import {PageLinks, AuthorizationStatus} from '../constant/constant.ts';
 
 import {Offer} from '../types/offers.ts';
+import {ReviewType} from '../types/review.ts';
 
 type AppProps = {
   offers: Offer[];
+  reviews: ReviewType[];
 }
 
-function App({offers} : AppProps) {
+function App({offers, reviews} : AppProps) {
   const favoritesOffers = offers.filter((offer) => offer.isFavorite);
 
   return (
@@ -39,7 +41,7 @@ function App({offers} : AppProps) {
         />
         <Route
           path = {PageLinks.Offer}
-          element = {<OfferPage offers = {offers}/>}
+          element = {<OfferPage offers = {offers} reviews = {reviews}/>}
         />
         <Route
           path = {PageLinks.NotFound}

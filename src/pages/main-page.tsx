@@ -1,11 +1,9 @@
 import {useState} from 'react';
 
-import {CardList} from '../components/cardList';
-
 import {Offer} from '../types/offers';
 
+import {CardList} from '../components/cardList';
 import {Header} from '../components/header.tsx';
-
 import {Map} from '../components/map.tsx';
 
 import {CITY} from '../constant/constant.ts';
@@ -73,7 +71,7 @@ function MainPage({offers} : MainPageProps) {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">312 places to stay in Amsterdam</b>
+              <b className="places__found">{`${offers.length} places to stay in Amsterdam`}</b>
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
                 <span className="places__sorting-type" tabIndex={0}>
@@ -90,11 +88,11 @@ function MainPage({offers} : MainPageProps) {
                 </ul>
               </form>
 
-              {<CardList offers = {offers} onCardListItemHover = {handleCardListItemHover}/>}
+              {<CardList offers = {offers} onCardListItemHover = {handleCardListItemHover} isNearlyPlaceCard = {false}/>}
 
             </section>
             <div className="cities__right-section">
-              {<Map city = {CITY} offers = {offers} selectedCard = {selectedOffer}/>}
+              {<Map city = {CITY} offers = {offers} selectedCard = {selectedOffer} isNearlyOffersMap = {false}/>}
             </div>
           </div>
         </div>
