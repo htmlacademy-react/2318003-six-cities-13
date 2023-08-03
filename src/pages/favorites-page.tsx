@@ -3,7 +3,7 @@ import {Offer} from '../types/offers.ts';
 import {FavoriteCardList} from '../components/favoriteCardList.tsx';
 import {Header} from '../components/header.tsx';
 
-import {CITIES} from '../constant/constant.ts';
+import {CITIES} from '../constant/cities-constant.ts';
 
 type FavoritesPageProps = {
   favoriteOffers: Offer[];
@@ -36,13 +36,16 @@ function FavoritesPage({favoriteOffers} : FavoritesPageProps) {
           <section className="favorites">
             <h1 className="favorites__title">Saved listing</h1>
             <ul className="favorites__list">
-              {CITIES.map((city) => (
-                <FavoriteCardList
-                  favoriteOffersByCities = {favoriteOffersByCities[city]}
-                  city = {city}
-                  key = {city}
-                />
-              ))}
+              {
+                Object.values(CITIES).map((city) => (
+                  <FavoriteCardList
+                    favoriteOffersByCities = {favoriteOffersByCities[city.name]}
+                    city = {city.name}
+                    key = {city.name}
+                  />
+                ))
+              }
+
             </ul>
           </section>
         </div>
