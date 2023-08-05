@@ -25,7 +25,7 @@ function App({offers, reviews} : AppProps) {
       <Routes>
         <Route
           path = {PageLinks.Main}
-          element = {<MainPage offers = {offers}/>}
+          element = {<MainPage />}
         />
         <Route
           path = {PageLinks.Login}

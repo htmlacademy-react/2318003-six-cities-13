@@ -10,22 +10,18 @@ import {useMap} from '../hooks/useMap.tsx';
 import {URL_MARKER_DEFAULT, URL_MARKER_CURRENT} from '../constant/constant.ts';
 
 type MapProps = {
-  city: City;
+  city: City | undefined;
   offers: Offer[];
   selectedCard: Offer | undefined;
   isNearlyOffersMap: boolean;
 }
 
 const defaultCustomIcon = new Icon({
-  iconUrl: URL_MARKER_DEFAULT,
-  iconSize: [40, 40],
-  iconAnchor: [20, 40],
+  iconUrl: URL_MARKER_DEFAULT
 });
 
 const currentCustomIcon = new Icon({
-  iconUrl: URL_MARKER_CURRENT,
-  iconSize: [40, 40],
-  iconAnchor: [20, 40],
+  iconUrl: URL_MARKER_CURRENT
 });
 
 function Map({city, offers, selectedCard, isNearlyOffersMap}: MapProps) {

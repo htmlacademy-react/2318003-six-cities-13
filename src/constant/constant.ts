@@ -16,14 +16,6 @@ enum AuthorizationStatus {
   Unknown = 'UNKNOWN'
 }
 
-const CITIES = [
-  'Paris',
-  'Cologne',
-  'Brussels',
-  'Amsterdam',
-  'Hamburg',
-  'Dusseldorf'] as const;
-
 const RATING_COEFFICIENT = 20;
 
 const RATINGS = [
@@ -44,10 +36,10 @@ const CITY = {
 } as const;
 
 const URL_MARKER_DEFAULT =
-  'https://assets.htmlacademy.ru/content/intensive/javascript-1/demo/interactive-map/pin.svg';
+  '../img/pin.svg';
 
 const URL_MARKER_CURRENT =
-  'https://assets.htmlacademy.ru/content/intensive/javascript-1/demo/interactive-map/main-pin.svg';
+  '../img/pin-active.svg';
 
 const MOUNTHS = [
   'January',
@@ -64,4 +56,5 @@ const MOUNTHS = [
   'December'
 ] as const;
 
-export {CardProperty, PageLinks, AuthorizationStatus, CITIES, RATING_COEFFICIENT, RATINGS, CITY, URL_MARKER_DEFAULT, URL_MARKER_CURRENT, MOUNTHS};
+
+export {CardProperty, PageLinks, AuthorizationStatus, RATING_COEFFICIENT, RATINGS, CITY, URL_MARKER_DEFAULT, URL_MARKER_CURRENT, MOUNTHS};
