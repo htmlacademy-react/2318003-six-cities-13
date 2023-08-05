@@ -14,6 +14,7 @@ function MainPage() {
   const selectedCity = useAppSelector((state) => state.city);
   const offers = useAppSelector((state) => state.offers);
   const selectedCityOffers = getOffersByCity(offers, selectedCity?.name);
+  const selectedSort = useAppSelector((state) => state.sort);
 
   const [selectedOffer, setSelectedOffer] = useState<Offer | undefined>(undefined);
 
@@ -41,7 +42,15 @@ function MainPage() {
           </section>
         </div>
         <div className="cities">
-          {<CitiesContainer selectedCityOffers = {selectedCityOffers} selectedCity = {selectedCity} handleCardListItemHover = {handleCardListItemHover} selectedOffer = {selectedOffer}/>}
+          {
+            <CitiesContainer
+              selectedCityOffers = {selectedCityOffers}
+              selectedCity = {selectedCity}
+              handleCardListItemHover = {handleCardListItemHover}
+              selectedOffer = {selectedOffer}
+              selectedSort = {selectedSort}
+            />
+          }
         </div>
       </main>
     </div>

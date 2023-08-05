@@ -2,7 +2,7 @@ import {City} from '../types/offers.ts';
 
 import {useAppDispatch} from '../hooks/index.ts';
 
-import {cityReplacement} from '../store/action.ts';
+import {changeCity} from '../store/action.ts';
 
 import {CITIES} from '../constant/cities-constant.ts';
 
@@ -19,9 +19,9 @@ function CitiesList ({selectedCity}: CitiesListProps) {
 
   return (
     <ul className="locations__list tabs__list">
-      { CITIES.map((city) => (
+      {CITIES.map((city) => (
         <li key={city.name} className="locations__item" onClick={ () => {
-          dispatch(cityReplacement(city));
+          dispatch(changeCity(city));
         }}
         >
           <Link className={`${city.name === selectedCity?.name ? 'tabs__item--active' : 'tabs__item--disable'} locations__item-link tabs__item`} to={PageLinks.Main}>
