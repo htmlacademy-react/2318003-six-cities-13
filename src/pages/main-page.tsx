@@ -10,11 +10,13 @@ import {useAppSelector} from '../hooks/index.ts';
 
 import {getOffersByCity} from '../utils/utils.tsx';
 
+import {getStateCity, getStateOffers, getStateSort} from '../selectors/selectors.ts';
+
 function MainPage() {
-  const selectedCity = useAppSelector((state) => state.city);
-  const offers = useAppSelector((state) => state.offers);
+  const selectedCity = useAppSelector(getStateCity);
+  const offers = useAppSelector(getStateOffers);
   const selectedCityOffers = getOffersByCity(offers, selectedCity?.name);
-  const selectedSort = useAppSelector((state) => state.sort);
+  const selectedSort = useAppSelector(getStateSort);
 
   const [selectedOffer, setSelectedOffer] = useState<Offer | undefined>(undefined);
 
