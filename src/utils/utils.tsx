@@ -15,4 +15,28 @@ const getOffersByCity = (offers: Offer[], city: string | undefined): Offer[] => 
 
 const getSelectedCity = (selectedCity: string | undefined, cities: City[]): City | undefined => cities.find((item) => item.name === selectedCity);
 
-export {humanizeDate, getShortName, getOffersByCity, getSelectedCity};
+const sortToHigh = (offers: Offer[]): Offer[] => {
+  const curOffers = offers;
+
+  return (
+    curOffers.sort((a, b) => (a.price - b.price))
+  );
+};
+
+const sortToLow = (offers: Offer[]): Offer[] => {
+  const curOffers = offers;
+
+  return (
+    curOffers.sort((a, b) => (b.price - a.price))
+  );
+};
+
+const sortTopRated = (offers: Offer[]): Offer[] => {
+  const curOffers = offers;
+
+  return (
+    curOffers.sort((a, b) => (b.rating - a.rating))
+  );
+};
+
+export {humanizeDate, getShortName, getOffersByCity, getSelectedCity, sortToHigh, sortToLow, sortTopRated};

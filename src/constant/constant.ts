@@ -56,5 +56,28 @@ const MOUNTHS = [
   'December'
 ] as const;
 
+enum SortType {
+  Popular = 'Popular',
+  PriceToHigh = 'Price: low to high',
+  PriceToLow = 'Price: high to low',
+  TopRated = 'Top rated first'
+}
 
-export {CardProperty, PageLinks, AuthorizationStatus, RATING_COEFFICIENT, RATINGS, CITY, URL_MARKER_DEFAULT, URL_MARKER_CURRENT, MOUNTHS};
+enum SortListState {
+  Closed = 'places__options places__options--custom',
+  Opened = 'places__options places__options--custom places__options--opened'
+}
+
+export {
+  CardProperty,
+  PageLinks,
+  AuthorizationStatus,
+  RATING_COEFFICIENT,
+  RATINGS,
+  CITY,
+  URL_MARKER_DEFAULT,
+  URL_MARKER_CURRENT,
+  MOUNTHS,
+  SortType,
+  SortListState
+};
