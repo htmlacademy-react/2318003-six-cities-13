@@ -8,4 +8,15 @@ const getStateSort = (state : InitialState) => state.sort;
 
 const getStateOfferReview = (state : InitialState) => state.offerReviews;
 
-export {getStateCity, getStateOffers, getStateSort, getStateOfferReview};
+const getStateActiveOffer = (state : InitialState) => state.activeOffer;
+
+const isOfferLoad = (state : InitialState) => state.isOfferLoad;
+
+export {
+  getStateCity,
+  getStateOffers,
+  getStateSort,
+  getStateOfferReview,
+  getStateActiveOffer,
+  isOfferLoad
+};

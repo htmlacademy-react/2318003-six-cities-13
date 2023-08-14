@@ -4,35 +4,35 @@ import {createAsyncThunk} from '@reduxjs/toolkit';
 import {State, AppDispatch} from '../types/state.ts';
 import {Offer} from '../types/offers.ts';
 
-import {fillingOffers} from './action.ts';
+import {loadOffers, setOfferStatus, loadOffer} from './action.ts';
 
 import {APIRoute} from '../constant/constant.ts';
 
-const fetchOffersAction = createAsyncThunk<void, undefined, {
+const fetchOffers = createAsyncThunk<void, undefined, {
   dispatch: AppDispatch;
   state: State;
   extra: AxiosInstance;
 }>(
   'fetchOffers',
-  async (_arg, { dispatch, extra: api }) => {
+  async (_arg, {dispatch, extra: api}) => {
     const {data} = await api.get<Offer[]>(APIRoute.Offers);
-    dispatch(fillingOffers(data));
+    dispatch(loadOffers(data));
   }
 );
 
-/* const fetchOfferAction = createAsyncThunk<void, {id: string | undefined}, {
+const fetchOffer = createAsyncThunk<void, {id: string | undefined}, {
   dispatch: AppDispatch;
   state: State;
   extra: AxiosInstance;
 }>(
   'fetchOffer',
-  async ({ id }, { dispatch, extra: api }) => {
-    dispatch(setOfferLoadingStatus(true));
+  async ({id}, {dispatch, extra: api }) => {
+    dispatch(setOfferStatus(true));
     const url = id !== undefined ? `${APIRoute.Offers}/${id}` : '';
-    const {data} = await api.get<FullOfferType>(url);
-    dispatch(setOfferLoadingStatus(false));
+    const {data} = await api.get<Offer>(url);
+    dispatch(setOfferStatus(false));
     dispatch(loadOffer(data));
   }
-); */
+);
 
-export {fetchOffersAction};
+export {fetchOffers, fetchOffer};

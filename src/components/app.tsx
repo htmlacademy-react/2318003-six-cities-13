@@ -31,7 +31,7 @@ function App() {
           }
         />
         <Route
-          path = {PageLinks.Offer}
+          path = {`${PageLinks.Offer}/:id`}
           element = {<OfferPage />}
         />
         <Route

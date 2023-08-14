@@ -6,9 +6,9 @@ import {App} from './components/app.tsx';
 
 import {store} from './store/store.ts';
 
-import {fetchOffersAction} from './store/api-actions.ts';
+import {fetchOffers} from './store/api-actions.ts';
 
-store.dispatch(fetchOffersAction());
+store.dispatch(fetchOffers());
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

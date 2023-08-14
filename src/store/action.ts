@@ -5,14 +5,27 @@ import {ReviewType} from '../types/review.ts';
 
 const changeCity = createAction('/changeCity', (city: City) => ({payload: city}));
 
-const fillingOffers = createAction('/fillingOffers', (offers: Offer[]) => ({payload: offers}));
+const loadOffers = createAction('/loadOffers', (offers: Offer[]) => ({payload: offers}));
 
 const changeSortType = createAction('/changeSortType', (sort: string) => ({payload: sort}));
 
 const changeSortListState = createAction('/changeSortListState', (sortListState: string) => ({payload: sortListState}));
 
-const loadOffers = createAction('/loadOffers', (offers: Offer[]) => ({payload: offers}));
+const loadOffer = createAction('/loadOffer', (offer: Offer) => ({payload: offer}));
 
 const loadOfferReviews = createAction('/loadOfferReviews', (offerReview: ReviewType[]) => ({payload: offerReview}));
 
-export {changeCity, fillingOffers, changeSortType, changeSortListState, loadOffers, loadOfferReviews};
+const setActiveOfferId = createAction('/setActiveOfferId', (activeOfferId: string) => ({payload: activeOfferId}));
+
+const setOfferStatus = createAction('/setOfferStatus', (offerStatus: boolean) => ({payload: offerStatus}));
+
+export {
+  changeCity,
+  loadOffers,
+  changeSortType,
+  changeSortListState,
+  loadOffer,
+  loadOfferReviews,
+  setActiveOfferId,
+  setOfferStatus
+};

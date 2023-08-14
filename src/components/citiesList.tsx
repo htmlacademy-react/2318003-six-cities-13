@@ -20,12 +20,12 @@ function CitiesList ({selectedCity}: CitiesListProps) {
   return (
     <ul className="locations__list tabs__list">
       {CITIES.map((city) => (
-        <li key={city.name} className="locations__item" onClick={ () => {
+        <li key={city.name} className="locations__item" onClick={() => {
           dispatch(changeCity(city));
         }}
         >
           <Link className={`${city.name === selectedCity?.name ? 'tabs__item--active' : 'tabs__item--disable'} locations__item-link tabs__item`} to={PageLinks.Main}>
-            <span>{ city.name }</span>
+            <span>{city.name}</span>
           </Link>
         </li>
       ))}

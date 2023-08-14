@@ -2,9 +2,9 @@ import {useAppDispatch} from '../hooks/index.ts';
 
 import {SortType} from '../constant/constant.ts';
 
-import {fillingOffers, changeSortType} from '../store/action.ts';
+import {loadOffers, changeSortType} from '../store/action.ts';
 
-import {fetchOffersAction} from '../store/api-actions.ts';
+import {fetchOffers} from '../store/api-actions.ts';
 
 import {useState, KeyboardEvent} from 'react';
 
@@ -38,20 +38,20 @@ function Sorting ({selectedSort, selectedCityOffers}: SortingProps) {
     switch (sort) {
       case SortType.PriceToHigh:
         dispatch(changeSortType(SortType.PriceToHigh));
-        dispatch(fillingOffers(sortToHigh(selectedCityOffers)));
+        dispatch(loadOffers(sortToHigh(selectedCityOffers)));
         break;
       case SortType.PriceToLow:
         dispatch(changeSortType(SortType.PriceToLow));
-        dispatch(fillingOffers(sortToLow(selectedCityOffers)));
+        dispatch(loadOffers(sortToLow(selectedCityOffers)));
         break;
       case SortType.TopRated:
         dispatch(changeSortType(SortType.TopRated));
-        dispatch(fillingOffers(sortTopRated(selectedCityOffers)));
+        dispatch(loadOffers(sortTopRated(selectedCityOffers)));
         break;
       default:
-        dispatch(fetchOffersAction());
+        dispatch(fetchOffers());
         dispatch(changeSortType(SortType.Popular));
-        dispatch(fillingOffers(selectedCityOffers));
+        dispatch(loadOffers(selectedCityOffers));
         break;
     }
   };
