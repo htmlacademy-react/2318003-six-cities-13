@@ -1,9 +1,10 @@
 import {useParams, Navigate} from 'react-router-dom';
 
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 import {Offer} from '../types/offers';
-import {ReviewType} from '../types/review.ts';
+
+import {LoadingPage} from './loading-page.tsx';
 
 import {Header} from '../components/header.tsx';
 import {CommentForm} from '../components/commentForm.tsx';
@@ -13,10 +14,11 @@ import {CardList} from '../components/cardList.tsx';
 
 import {PageLinks, RATING_COEFFICIENT, CITY} from '../constant/constant.ts';
 
-type OfferPageProps = {
-  offers: Offer[];
-  reviews: ReviewType[];
-}
+import {useAppSelector, useAppDispatch} from '../hooks/index.ts';
+
+import {getStateOffers, getStateActiveOffer, isOfferLoad, getStateOfferReview} from '../selectors/selectors.ts';
+
+import {fetchOffer} from '../store/api-actions.ts';
 
 const findBedroom = (bedrooms : number) : string => {
   if (bedrooms === 1) {
@@ -26,12 +28,32 @@ const findBedroom = (bedrooms : number) : string => {
   return `${bedrooms} Bedrooms`;
 };
 
-function OfferPage({offers, reviews}: OfferPageProps) {
-  const currentOfferId = useParams();
-  const currentOffer = offers.find((offer) => offer.id === currentOfferId.id);
-  const currentOfferReviews = reviews.filter((review) => review.id === currentOfferId.id);
+function OfferPage() {
 
   const [selectedOffer, setSelectedOffer] = useState<Offer | undefined>(undefined);
+
+  const dispatch = useAppDispatch();
+  const offerId = useParams().id;
+
+  useEffect(() => {
+    dispatch(fetchOffer({id: offerId}));
+  }, [offerId, dispatch]
+  );
+
+  const offers = useAppSelector(getStateOffers);
+  const currentOffer = useAppSelector(getStateActiveOffer);
+  const isOfferLoading = useAppSelector(isOfferLoad);
+  const currentOfferReviews = useAppSelector(getStateOfferReview);
+
+  if (isOfferLoading || currentOffer === null) {
+    return (
+      <LoadingPage />
+    );
+  }
+
+  if (!currentOffer.id) {
+    return <Navigate to={PageLinks.NotFound} />;
+  }
 
   const handleCardListItemHover = (id: Offer['id'] | undefined) => {
     if (!id) {
@@ -43,19 +65,19 @@ function OfferPage({offers, reviews}: OfferPageProps) {
     setSelectedOffer(curOffer);
   };
 
-  const [state, setState] = useState(currentOffer);
+  /*   const [state, setState] = useState(currentOffer);
 
   if (state === undefined) {
     return <Navigate to={PageLinks.NotFound} />;
-  }
+  } */
 
-  const {bedrooms, goods, host, images, isFavorite, isPremium, maxAdults, price, rating, title, type} = state;
+  const {bedrooms, goods, host, images, isFavorite, isPremium, maxAdults, price, rating, title, type} = currentOffer;
 
   const handleChange = () => {
-    setState({
+    /* setState({
       ...state,
       isFavorite: !isFavorite
-    });
+    }); */
   };
 
   return (

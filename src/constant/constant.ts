@@ -6,9 +6,15 @@ enum PageLinks {
   Main = '/',
   Login = '/login',
   Favorites = '/favorites',
-  Offer = '/offer/:id',
+  Offer = '/offer',
   NotFound = '*'
 }
+
+const APIRoute = {
+  Offers: '/offers',
+  Login: '/login',
+  Logout: '/logout',
+};
 
 enum AuthorizationStatus {
   Auth = 'AUTH',
@@ -79,5 +85,6 @@ export {
   URL_MARKER_CURRENT,
   MOUNTHS,
   SortType,
-  SortListState
+  SortListState,
+  APIRoute
 };

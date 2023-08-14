@@ -1,16 +1,22 @@
-import {City, Offer} from '../types/offers.ts';
+import {InitialState} from '../store/reducer.ts';
 
-type SelectedCityProps = {
-  city: City | undefined;
-  offers: Offer[];
-  sort: string;
-  sortListState: string;
-}
+const getStateCity = (state : InitialState) => state.city;
 
-const getStateCity = (state : SelectedCityProps) => state.city;
+const getStateOffers = (state : InitialState) => state.offers;
 
-const getStateOffers = (state : SelectedCityProps) => state.offers;
+const getStateSort = (state : InitialState) => state.sort;
 
-const getStateSort = (state : SelectedCityProps) => state.sort;
+const getStateOfferReview = (state : InitialState) => state.offerReviews;
 
-export {getStateCity, getStateOffers, getStateSort};
+const getStateActiveOffer = (state : InitialState) => state.activeOffer;
+
+const isOfferLoad = (state : InitialState) => state.isOfferLoad;
+
+export {
+  getStateCity,
+  getStateOffers,
+  getStateSort,
+  getStateOfferReview,
+  getStateActiveOffer,
+  isOfferLoad
+};
