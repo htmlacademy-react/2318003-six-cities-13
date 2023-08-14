@@ -9,16 +9,7 @@ import {PrivateRoute} from './private-route.tsx';
 
 import {PageLinks, AuthorizationStatus} from '../constant/constant.ts';
 
-import {Offer} from '../types/offers.ts';
-import {ReviewType} from '../types/review.ts';
-
-type AppProps = {
-  offers: Offer[];
-  reviews: ReviewType[];
-}
-
-function App({offers, reviews} : AppProps) {
-  const favoritesOffers = offers.filter((offer) => offer.isFavorite);
+function App() {
 
   return (
     <BrowserRouter>
@@ -35,13 +26,13 @@ function App({offers, reviews} : AppProps) {
           path = {PageLinks.Favorites}
           element = {
             <PrivateRoute authorizationStatus = {AuthorizationStatus.Auth}>
-              <FavoritesPage favoriteOffers = {favoritesOffers}/>
+              <FavoritesPage />
             </PrivateRoute>
           }
         />
         <Route
           path = {PageLinks.Offer}
-          element = {<OfferPage offers = {offers} reviews = {reviews}/>}
+          element = {<OfferPage />}
         />
         <Route
           path = {PageLinks.NotFound}

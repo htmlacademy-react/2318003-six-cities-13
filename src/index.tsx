@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {Provider} from 'react-redux';
 
-import {offers} from './mock/offers.ts';
-import {reviews} from './mock/reviews.ts';
-
 import {App} from './components/app.tsx';
 
 import {store} from './store/store.ts';
 
+import {fetchOffersAction} from './store/api-actions.ts';
+
+store.dispatch(fetchOffersAction());
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -17,7 +17,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Provider store = {store}>
-      <App offers = {offers} reviews = {reviews}/>
+      <App />
     </Provider>
   </React.StrictMode>
 );

@@ -1,7 +1,5 @@
 import {createReducer} from '@reduxjs/toolkit';
 
-import {offers} from '../mock/offers.ts';
-
 import {CITIES} from '../constant/cities-constant.ts';
 import {SortType, SortListState} from '../constant/constant.ts';
 
@@ -9,15 +7,27 @@ import {changeCity, fillingOffers, changeSortType, changeSortListState} from './
 
 import {getSelectedCity} from '../utils/utils.tsx';
 
+import {Offer, City} from '../types/offers.ts';
+import {ReviewType} from '../types/review.ts';
+
 const DEFAULT_CITY = getSelectedCity('Paris', CITIES);
 const DEFAULT_SORT: string = SortType.Popular;
 const DEFAULT_SORT_LIST_STATE: string = SortListState.Closed;
 
-const initialState = {
+export type InitialState = {
+  city: City | undefined;
+  offers: Offer[];
+  sort: string;
+  sortListState: string;
+  offerReviews: ReviewType[];
+};
+
+const initialState: InitialState = {
   city: DEFAULT_CITY,
-  offers: offers,
+  offers: [],
   sort: DEFAULT_SORT,
-  sortListState: DEFAULT_SORT_LIST_STATE
+  sortListState: DEFAULT_SORT_LIST_STATE,
+  offerReviews: []
 };
 
 const mainReducer = createReducer(initialState, (builder) => {

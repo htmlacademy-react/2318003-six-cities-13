@@ -1,8 +1,7 @@
 import {createAction} from '@reduxjs/toolkit';
 
-import {Offer} from '../types/offers.ts';
-
-import {City} from '../types/offers.ts';
+import {Offer, City} from '../types/offers.ts';
+import {ReviewType} from '../types/review.ts';
 
 const changeCity = createAction('/changeCity', (city: City) => ({payload: city}));
 
@@ -12,4 +11,8 @@ const changeSortType = createAction('/changeSortType', (sort: string) => ({paylo
 
 const changeSortListState = createAction('/changeSortListState', (sortListState: string) => ({payload: sortListState}));
 
-export {changeCity, fillingOffers, changeSortType, changeSortListState};
+const loadOffers = createAction('/loadOffers', (offers: Offer[]) => ({payload: offers}));
+
+const loadOfferReviews = createAction('/loadOfferReviews', (offerReview: ReviewType[]) => ({payload: offerReview}));
+
+export {changeCity, fillingOffers, changeSortType, changeSortListState, loadOffers, loadOfferReviews};

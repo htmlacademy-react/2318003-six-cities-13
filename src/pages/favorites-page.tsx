@@ -5,11 +5,13 @@ import {Header} from '../components/header.tsx';
 
 import {CITIES} from '../constant/cities-constant.ts';
 
-type FavoritesPageProps = {
-  favoriteOffers: Offer[];
-}
+import {useAppSelector} from '../hooks/index.ts';
 
-function FavoritesPage({favoriteOffers} : FavoritesPageProps) {
+import {getStateOffers} from '../selectors/selectors.ts';
+
+function FavoritesPage() {
+  const offers = useAppSelector(getStateOffers);
+  const favoriteOffers = offers.filter((offer) => offer.isFavorite);
   const favoriteOffersByCities: Record<string, Offer[]> = {
     Paris: [],
     Cologne: [],

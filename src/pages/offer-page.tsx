@@ -3,7 +3,6 @@ import {useParams, Navigate} from 'react-router-dom';
 import {useState} from 'react';
 
 import {Offer} from '../types/offers';
-import {ReviewType} from '../types/review.ts';
 
 import {Header} from '../components/header.tsx';
 import {CommentForm} from '../components/commentForm.tsx';
@@ -13,10 +12,9 @@ import {CardList} from '../components/cardList.tsx';
 
 import {PageLinks, RATING_COEFFICIENT, CITY} from '../constant/constant.ts';
 
-type OfferPageProps = {
-  offers: Offer[];
-  reviews: ReviewType[];
-}
+import {useAppSelector} from '../hooks/index.ts';
+
+import {getStateOffers, getStateOfferReview} from '../selectors/selectors.ts';
 
 const findBedroom = (bedrooms : number) : string => {
   if (bedrooms === 1) {
@@ -26,9 +24,11 @@ const findBedroom = (bedrooms : number) : string => {
   return `${bedrooms} Bedrooms`;
 };
 
-function OfferPage({offers, reviews}: OfferPageProps) {
+function OfferPage() {
+  const offers = useAppSelector(getStateOffers);
   const currentOfferId = useParams();
   const currentOffer = offers.find((offer) => offer.id === currentOfferId.id);
+  const reviews = useAppSelector(getStateOfferReview);
   const currentOfferReviews = reviews.filter((review) => review.id === currentOfferId.id);
 
   const [selectedOffer, setSelectedOffer] = useState<Offer | undefined>(undefined);

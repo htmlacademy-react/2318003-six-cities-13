@@ -4,6 +4,8 @@ import {SortType} from '../constant/constant.ts';
 
 import {fillingOffers, changeSortType} from '../store/action.ts';
 
+import {fetchOffersAction} from '../store/api-actions.ts';
+
 import {useState, KeyboardEvent} from 'react';
 
 import {sortToHigh, sortToLow, sortTopRated} from '../utils/utils.tsx';
@@ -47,6 +49,7 @@ function Sorting ({selectedSort, selectedCityOffers}: SortingProps) {
         dispatch(fillingOffers(sortTopRated(selectedCityOffers)));
         break;
       default:
+        dispatch(fetchOffersAction());
         dispatch(changeSortType(SortType.Popular));
         dispatch(fillingOffers(selectedCityOffers));
         break;
